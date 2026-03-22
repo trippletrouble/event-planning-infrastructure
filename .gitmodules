@@ -1,0 +1,6 @@
+[submodule "backend"]
+	path = backend
+	url = https://gitlab.hof-university.de/event-planning/backend.git
+[submodule "frontend"]
+	path = frontend
+	url = https://gitlab.hof-university.de/event-planning/frontend.git
