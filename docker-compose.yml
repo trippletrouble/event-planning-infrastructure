@@ -1,0 +1,76 @@
+services:
+#  postgres:
+#    image: postgres:13.5
+#    environment:
+#      - POSTGRES_USER=myuser
+#      - POSTGRES_PASSWORD=***ENTFERNT***
+#      - POSTGRES_DB=mydb
+#    healthcheck:
+#      test: ["CMD-SHELL", "pg_isready -U myuser -d mydb"]
+#      interval: 10s
+#      timeout: 5s
+#      retries: 5
+#    ports:
+#      - '5432:5432'
+#    networks:
+#      - events
+#    volumes:
+#      - postgres:/var/lib/postgresql/data
+#    profiles:
+#      - 'db-standalone'
+#      - ''
+
+#  redis:
+#    image: redis:7-alpine
+#    ports:
+#      - '6379:6379'
+#    networks:
+#      - events
+#    volumes:
+#      - redis-data:/data
+#    profiles:
+#      - 'redis-standalone'
+#      - ''
+
+  nestjs:
+    env_file:
+      - ./backend/.env
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+#    environment:
+#      - DATABASE_URL=postgres://myuser:***@postgres:5432/mydb
+#      - REDIS_HOST=redis
+#      - REDIS_PORT=6379
+#    volumes:
+#      - uploads:/app/uploads
+    ports:
+      - '3100:3100'
+    networks:
+      - events
+#    depends_on:
+#      postgres:
+#        condition: service_healthy
+#      redis:
+#        condition: service_started
+
+    profiles:
+      - 'backend-standalone'
+      - ''
+
+  nextjs:
+    build: ./frontend
+    ports:
+      - '3000:3000'
+    networks:
+      - events
+    profiles:
+      - 'frontend-standalone'
+      - ''
+networks:
+  events:
+    driver: bridge
+#volumes:
+#  uploads:
+#  postgres:
+#  redis-data:
