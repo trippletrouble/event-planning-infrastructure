@@ -21,7 +21,7 @@
 
 ## Clone the Project
 ```powershell
-git clone https://gitlab.hof-university.de/event-planning/infrastructure.git
+git clone --recurse-submodules https://gitlab.hof-university.de/event-planning/infrastructure.git
 cd Event-Planning
 ```
 
