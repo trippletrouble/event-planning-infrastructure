@@ -40,3 +40,48 @@ docker compose up --build
 - Frontend: `http://localhost:3000`
 - Backend: `http://localhost:3100`
 
+
+## Diagrams
+### ER-Diagram
+```mermaid
+erDiagram
+    USER {
+        int user_id PK
+        string first_name
+        string last_name
+        string email
+        enum Type "Student|Company|Manager|Admin"
+        date created_at
+    }
+
+    EVENT {
+        int event_id PK
+        string location
+        int total_tickets
+        int sold_tickets
+        int available_tickets
+    }
+
+    EXHIBITOR {
+        int exhibitor_id PK
+        string name
+    }
+
+    EXHIBITOR_IN_EVENT {
+        int exhibitor_id FK
+        int event_id FK
+        string location
+        string one_time_password UK
+    }
+
+    USER_IN_EVENT {
+      int user_id FK
+      int event_id FK
+      string one_time_password UK
+    }
+
+    USER ||--o{ USER_IN_EVENT : ""
+    USER_IN_EVENT }o--o{ EVENT : ""
+    EXHIBITOR ||--o{ EXHIBITOR_IN_EVENT : ""
+    EXHIBITOR_IN_EVENT }o--o{ EVENT : ""
+```
