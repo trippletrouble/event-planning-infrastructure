@@ -4,14 +4,15 @@ damit **[Nutzen]**.
 
 ## Akzeptanzkriterien
 - [ ] ...
-- [ ] ...
+
+## A11y-Kriterien
+- [ ] Keyboard-navigierbar
+- [ ] Labels/ARIA-Attribute korrekt
+- [ ] jest-axe Test besteht
 
 ## Tasks
 - [ ] Backend: ...
 - [ ] Frontend: ...
 - [ ] Tests: ...
-
-## Notizen
-...
 
 /label ~"type::user-story"
