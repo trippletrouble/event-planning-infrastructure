@@ -2,11 +2,11 @@ services:
   postgres:
     image: postgres:13.5
     environment:
-      - POSTGRES_USER=myuser
+      - POSTGRES_USER=user
       - POSTGRES_PASSWORD=***ENTFERNT***
-      - POSTGRES_DB=mydb
+      - POSTGRES_DB=event_db
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U myuser -d mydb"]
+      test: ["CMD-SHELL", "pg_isready -U user -d event_db"]
       interval: 10s
       timeout: 5s
       retries: 5
