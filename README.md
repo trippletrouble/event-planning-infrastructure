@@ -19,6 +19,9 @@
 - Free local ports: `3000` (frontend) and `3100` (backend)
 - Optional for local non-Docker runs: Node.js `22.x` and npm
 
+#Figma
+https://www.figma.com/design/j6hPxpGU3xSX1fASU0jWu6/Event-Planing?node-id=0-1&p=f&t=KqyYZG7N5I7vLIkE-0
+
 ## Clone the Project
 ```powershell
 git clone --recurse-submodules https://gitlab.hof-university.de/event-planning/infrastructure.git
